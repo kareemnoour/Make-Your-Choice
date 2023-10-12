@@ -10,6 +10,7 @@
 body{
     direction: rtl;
     font-family: 'Amiri', serif;
+    overflow: hidden;
 }
 
 header{
@@ -162,7 +163,10 @@ header h1 span{
     }
 }
   
-  
+.flex {
+    display: flex;
+    flex-direction: column;
+}
 
 @media (max-width: 767px){
     .radio-input {

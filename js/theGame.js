@@ -14,8 +14,8 @@ input.forEach((e) => {
             e.parentNode.style.display = "none";
         }
         
-        console.log(e.labels[0].innerHTML); 
-        res(check(e.labels[0].innerHTML));
+        setSpan(check(e.labels[0].innerHTML))
+        
     }) 
 })
 
@@ -26,7 +26,7 @@ function check(text) {
     }else if(text === "اللون الاسود"){
         return `محب للهدوء`
     }
-
+    
     else if (text === "البقاء بدون نوم"){
         return `مفكر`
     }else if(text === "البقاء بدون اكل"){
@@ -62,12 +62,40 @@ final.onclick = () => {
     header.innerHTML = "صفاتك هى :"
     result.style.display = "flex";
     final.style.display = "none";
-    con.innerHTML = "";
-    con.appendChild(result);
+    show(result.innerText)
 }
-result.style.cssText = "width:100%; height: 90vh; background-color: #001; display:none ;align-items: center;justify-content: center;font-size: 50px;color: orange";
 
-function res(text) {
-    result.innerHTML += `${text} `
-    document.body.appendChild(result)
+function setSpan(text) {
+    let span = document.createElement("span");
+    span.innerText = text;
+    result.appendChild(span);
+    document.body.appendChild(result);
 }
+
+function show(text) {
+    
+    Swal.fire({
+        title:text,
+        customClass: {
+            title: 'flex',
+        },
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    }).then(()=> {
+        location.reload();
+    })     
+}
+
+   
+       
+        
+        
+        
+        
+        
+        
+        
