@@ -78,6 +78,7 @@ function show(text) {
         title:text,
         customClass: {
             title: 'flex',
+            popup: 'flex',
         },
         showClass: {
             popup: 'animate__animated animate__fadeInDown'
